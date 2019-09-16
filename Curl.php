@@ -44,6 +44,7 @@ class Curl{
         curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
         curl_setopt($curl, CURLOPT_HTTPHEADER,$headerArray);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 10);
         $output = curl_exec($curl);
         if (curl_errno($curl)) {
             return ['state'=>0, 'errorMsg'=>curl_error($curl)];
