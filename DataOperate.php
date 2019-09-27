@@ -55,6 +55,7 @@ class DataOperate {
 
         $arr_value_str1 = self::getKeyValueStr($data1, $common_key);
         $arr_value_str2 = self::getKeyValueStr($data2, $common_key);
+        
         $array = array();
         foreach ($arr_value_str1 as $key => $value) {
             $arr = array();
@@ -68,13 +69,13 @@ class DataOperate {
             if(!empty($index_arr)){
                 $index = $index_arr[0];
                 $elem2 = $data2[$index];
-                foreach ($data2_keys as $v) {
-                    $arr[$v] = $elem2[$v];
+                foreach ($data2_keys as $vv) {
+                    $arr[$vv] = $elem2[$vv];
                 }
             }
             else{
-                foreach ($data2_keys as $v) {
-                    $arr[$v] = '';
+                foreach ($data2_keys as $vv) {
+                    $arr[$vv] = '';
                 }
             }
             $array[] = $arr;
@@ -91,6 +92,10 @@ class DataOperate {
             }
             foreach ($data2_keys as $v) {
                 $arr[$v] = $elem2[$v];
+                $value_arr = explode(',', $value);
+                foreach ($common_key as $key => $vv) {
+                   $arr[$vv] = $value_arr[$key];
+                }
             }
             $array[] = $arr;
         }
