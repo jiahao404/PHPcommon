@@ -4,7 +4,7 @@
 // include 'PHPExcel/PHPExcel/Writer/Excel2007.php';
 
 require_once 'PHPExcel/PHPExcel.php';
-require_once 'PHPExcel/PHPExcel/Writer/Excel2007.php';
+// require_once 'PHPExcel/PHPExcel/Writer/Excel2007.php';
 
 
 $datas = array(
@@ -71,6 +71,9 @@ $objWriter = new PHPExcel_Writer_Excel5($excel);
 $objWriter->save($filename . '.xls');
 
 
+/**
+ * 序号转化为excel的列名
+ */
 function IntToChr($index, $start = 65){
     $str = '';
     if (floor($index / 26) > 0) {
